@@ -2,50 +2,43 @@
 
 // f(g(x)) - f(x) is a higher order function which accepts g(x) as input
 
-// objective - print no. 0 to 6 on console
+// h(x) => h = function which acts on input `x`
 
-// function wrapper (n1, n2, action) {
-// 	for (let i=n1; i<=n2; i++) {
-// 		action(i);
-// 	}
-// }
+// h(x) = 3x+2
 
-// arr = []
-// wrapper(3, 9, function (k) {
-// 				if(k%2 === 0) arr.push(k);				
-// 			  });
+// k(x,y) = 3x+4y+5
 
-// console.log(arr)
+// k(2,3) = 3*2+4*3+5 => 23 => k(2,3) = 23
+
+// q(x) = x+9; q(1) => 1+9 = 10
+// // q is function as well
+// l(x,y,q) =x+y+q(x) // HOF
+
+// l(1,1,q) = 1+1+q(1) = 2+q(1) => 2+10 = 12 
 
 
-// function arrayMapper (array, action) {
-// 	for (let i=0; i<array.length;i++) {
-// 		array[i] = action ( array[i] )
-// 	}
-// }
+// h(3) = 3*3+2 = 11 > h(3) = 11
 
-// let array = [7,75,46,2,62,6465436543,6,5465,4]
+// objective - print no. 0 to 7 on console
 
-// arrayMapper (array, function (element) {
-// 						switch (element) {
-// 							case 62:
-// 							case 75:
-// 							case 7:						
-// 								return element;
-// 							default:
-// 								return null;
-// 						}
-// 					});
+// Custom HOF
+function wrapper (l, n, behavior) { // HOF
+	for (let i=l; i<=n; i++) {
+		behavior(i); // Fixed behavior(Static) - Dynamic > Sending behavior during runtime
+	}	
+}
 
-//  console.log(array)
+let arr =[]
+wrapper(3, 10,  function (k) { 
+			    	(k%2)==0 ? arr.push(k) : null
+			    	// Ternary statement
+			    	// condition ? true block : false block
+				}
+);
 
- let ab = [1,2,3].map(function (i) {
-					   	return 2*i;
-					  })
+console.log(arr)
 
- console.log(ab)
 
- .map()
- .reduce()
- .splice()
- .filter()
+     .map()
+	 .reduce()
+	 .filter()
